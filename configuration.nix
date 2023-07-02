@@ -65,6 +65,8 @@
     ungoogled-chromium
     firefox
     evince
+    python311
+    pipenv
     vscode
     gnome.gnome-terminal
     emacs29-pgtk
@@ -75,30 +77,28 @@
     cabal-install
     haskell-language-server
     hlint
-    stdenv
-    gcc
-    gnumake
-    cmake
     libvterm
     libtool
     pkgconfig
-    libvirt
-    qemu_kvm
-    qemu
-    virt-manager
+    jdk17
+    scala
+    ammonite
+    scala-cli
+    sbt
+    scalafmt
+    coursier
+    rustc
+    cargo
+    dotnet-sdk
+    flutter
+    dart
+    nodejs_20
+    gcc
+    ninja
     spice-vdagent
   ];
   services.spice-vdagentd.enable = true;
 
-  # Qemu Kvm configs
-  boot.kernelModules = ["kvm-arm"];
-  virtualisation.libvirtd.enable = true;
-  virtualisation.libvirtd.package = pkgs.libvirt;
-  virtualisation.libvirtd.extraConfig = ''
-      user = "emre";
-  '';
-  programs.dconf.enable = true;
-  
   # Some programs need SUID wrappers
   programs.mtr.enable = true;
   programs.gnupg.agent = {
