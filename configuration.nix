@@ -86,12 +86,10 @@
     qemu_kvm
     qemu
     virt-manager
-    spice-vdagent
   ];
-  services.spice-vdagentd.enable = true;
 
   # Qemu Kvm configs
-  boot.kernelModules = ["kvm-arm"];
+  boot.kernelModules = ["kvm-intel"];
   virtualisation.libvirtd.enable = true;
   virtualisation.libvirtd.package = pkgs.libvirt;
   virtualisation.libvirtd.extraConfig = ''
