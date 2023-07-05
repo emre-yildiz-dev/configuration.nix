@@ -88,6 +88,9 @@
     libtool
     pkgconfig
     jdk17
+    jetbrains.idea-ultimate
+    jetbrains.rider
+    android-studio
     coursier
     rustc
     cargo
