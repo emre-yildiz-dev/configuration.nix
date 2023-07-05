@@ -52,6 +52,12 @@
     allowUnfree = true;
   };
 
+  # Install fonts
+  fonts.fonts = with pkgs; [
+    fira-code
+    fira-code-symbols
+  ];
+
   # List packages installed in system profile
   environment.systemPackages = with pkgs; [
     wget
@@ -65,9 +71,12 @@
     ungoogled-chromium
     firefox
     evince
+    python311
+    python311Packages.pip
+    pipenv
     vscode
     gnome.gnome-terminal
-    emacs29-pgtk
+    emacs
     gnome.gnome-tweaks
     distrobox
     ghc
@@ -75,20 +84,28 @@
     cabal-install
     haskell-language-server
     hlint
+    libvterm
+    libtool
+    pkgconfig
+    jdk17
+    coursier
+    rustc
+    cargo
+    dotnet-sdk
+    flutter
+    dart
+    nodejs_20
+    gcc
+    ninja
     stdenv
     gcc
     gnumake
     cmake
-    libvterm
-    libtool
-    pkgconfig
     libvirt
     qemu_kvm
     qemu
     virt-manager
   ];
-
-  # Qemu Kvm configs
   boot.kernelModules = ["kvm-intel"];
   virtualisation.libvirtd.enable = true;
   virtualisation.libvirtd.package = pkgs.libvirt;
@@ -96,7 +113,7 @@
       user = "emre";
   '';
   programs.dconf.enable = true;
-  
+
   # Some programs need SUID wrappers
   programs.mtr.enable = true;
   programs.gnupg.agent = {
